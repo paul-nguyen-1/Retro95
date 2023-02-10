@@ -1,31 +1,31 @@
 import React from "react";
-import { Button, Divider, List, ListItem } from "react95";
+import { Button, Separator, MenuList, MenuListItem} from "react95";
 
 function Menu() {
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
-      <List style={{ position: "absolute", left: "0", top: "100%" }}>
-        <ListItem>
+      <MenuList style={{ position: "absolute", left: "0", top: "100%" }}>
+        <MenuListItem>
           <img
             style={{ width: 22, marginRight: 8 }}
             src={require("../assets/file.png")}
             alt="aboutLogo"
           />
           <span>GitHub Repo</span>
-        </ListItem>
-        <ListItem>
+        </MenuListItem>
+        <MenuListItem>
           <img
             style={{ width: 22, marginRight: 8 }}
             src={require("../assets/computer.png")}
             alt="aboutLogo"
           />
           <span>About</span>
-        </ListItem>
-        <Divider />
-        <ListItem>
-        Startup Sound: On
-        </ListItem>
-      </List>
+        </MenuListItem>
+        <Separator />
+        <MenuListItem>
+        Start
+        </MenuListItem>
+      </MenuList>
       <Button style={{ fontWeight: "bold", marginRight: 6 }}>
         <img
           src={require("../assets/windows.png")}
