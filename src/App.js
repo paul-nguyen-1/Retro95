@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, MenuList, MenuListItem, Separator, styleReset, TextField, Toolbar } from 'react95';
+import { AppBar, styleReset, TextInput, Toolbar } from 'react95';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 /* Pick a theme of your choice */
@@ -36,8 +36,8 @@ const App = () => (
     <ThemeProvider theme={original}>
     <AppBar style={{ zIndex: 3 }}>
             <Toolbar style={{ justifyContent: 'space-between' }}>
-              <Menu/>
-              <TextField
+              <Menu />
+              <TextInput
                 placeholder="Search..."
                 width={150}
                 style={{ marginLeft: 'auto' }}
