@@ -1,43 +1,47 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button, Separator, MenuList, MenuListItem } from "react95";
+import TabButton from "./TabButton";
 
 function Menu() {
-  const [showMenu, setShowMenu] = useState(false);
-  const [activeButton, setActiveButton] = useState(false)
+  const [active, setIsActive] = useState(false);
+ 
+  
+  const [showButton, setShowButton] = useState(false);
 
-  //Display Menu when clicked
-  const handleActiveMenu = () => {
-    setShowMenu(!showMenu);
+  //Display active menu list and activate background when clicked
+  const handleActiveClick = () => {
+    setIsActive(!active);
   };
 
-  //Make the menu button have an active background when clicked
-  const handleActiveButton = () => {
-    setActiveButton(!activeButton)
-  }
+  //Display about/foods button onto window when clicked
+  const clickAbout = () => {
+    setShowButton(true);
+  };
 
   //Close menu when clicking outside menu
   const ref = useRef();
   useEffect(() => {
     const checkOutsideClick = (e) => {
-      if (showMenu && ref.current && activeButton && !ref.current.contains(e.target)) {
-        setShowMenu(!showMenu);
-        setActiveButton(!activeButton);
+      if (
+        active &&
+        ref.current &&
+        showButton &&
+        !ref.current.contains(e.target)
+      ) {
+        setIsActive(!active);
       }
     };
     document.addEventListener("mousedown", checkOutsideClick);
     return () => {
       document.removeEventListener("mousedown", checkOutsideClick);
     };
-  }, [showMenu, activeButton]);
+  }, [active, showButton]);
 
   return (
-    <div
-      ref={ref}
-      onClick={handleActiveMenu}
-      style={{ position: "relative", display: "inline-block" }}
-    >
-      {showMenu && (
+    <div ref={ref} style={{ position: "relative", display: "inline-block" }}>
+      {active && (
         <MenuList
+          onClick={handleActiveClick}
           style={{
             position: "absolute",
             left: "0",
@@ -57,7 +61,7 @@ function Menu() {
               GitHub Repo
             </a>
           </MenuListItem>
-          <MenuListItem>
+          <MenuListItem onClick={clickAbout}>
             <img
               style={{ width: 22, marginRight: 8 }}
               src={require("../assets/computer.png")}
@@ -69,7 +73,11 @@ function Menu() {
           <MenuListItem>Start</MenuListItem>
         </MenuList>
       )}
-      <Button onClick={handleActiveButton} active={activeButton} style={{ fontWeight: "bold", marginRight: 6 }}>
+      <Button
+        onClick={handleActiveClick}
+        active={active}
+        style={{ fontWeight: "bold", marginRight: 6 }}
+      >
         <img
           src={require("../assets/windows.png")}
           alt="winlogo"
@@ -77,6 +85,7 @@ function Menu() {
         />
         Recipe95
       </Button>
+      {showButton && <TabButton />}
     </div>
   );
 }

@@ -1,14 +1,15 @@
-import React from 'react';
-import { AppBar, styleReset, TextInput, Toolbar } from 'react95';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import React from "react";
+import { AppBar, styleReset, TextInput, Toolbar } from "react95";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 /* Pick a theme of your choice */
-import original from 'react95/dist/themes/original';
+import original from "react95/dist/themes/original";
 
 /* Original Windows95 font (optional) */
-import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
-import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
-import Menu from './components/Menu';
+import ms_sans_serif from "react95/dist/fonts/ms_sans_serif.woff2";
+import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
+import Menu from "./components/Menu";
+import About from "./components/About";
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -34,17 +35,17 @@ const App = () => (
   <div>
     <GlobalStyles />
     <ThemeProvider theme={original}>
-    <AppBar style={{ zIndex: 3 }}>
-            <Toolbar style={{ justifyContent: 'space-between' }}>
-              <Menu />
-              <TextInput
-                placeholder="Search..."
-                width={150}
-                style={{ marginLeft: 'auto' }}
-                
-              />
-            </Toolbar>
-          </AppBar>
+      <AppBar style={{ zIndex: 3 }}>
+        <Toolbar style={{ justifyContent: "space-between" }}>
+          <Menu />
+          <TextInput
+            placeholder="Search..."
+            width={150}
+            style={{ marginLeft: "auto" }}
+          />
+        </Toolbar>
+      </AppBar>
+      <About />
     </ThemeProvider>
   </div>
 );
