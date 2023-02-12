@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button, Separator, MenuList, MenuListItem } from "react95";
 import TabButton from "./TabButton";
+import windowsSound from "../assets/windowsSound.mp3";
 
 function Menu() {
   //Display active menulist and show button tabs
@@ -11,7 +12,6 @@ function Menu() {
   //Display dropdown menu list and activate background when clicked
   const handleActiveClick = () => {
     setIsActive(!active);
-    console.log(active);
   };
 
   //Display about/foods button onto window when clicked
@@ -21,12 +21,14 @@ function Menu() {
 
   const handleActiveSound = () => {
     setSound(!sound);
+    new Audio(windowsSound).play();
   };
+
   //Close menu when clicking outside menu
   const menuRef = useRef();
   useEffect(() => {
     let checkOutsideClick = (e) => {
-      if (!menuRef.current.contains(e.target)) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
         setIsActive(false);
       }
     };
@@ -71,7 +73,7 @@ function Menu() {
           </MenuListItem>
           <Separator />
           <MenuListItem onClick={handleActiveSound}>
-            {sound ? "Startup Sound: On" : "Startup Sound: Off"}
+            Click for Nostalgia
           </MenuListItem>
         </MenuList>
       )}
