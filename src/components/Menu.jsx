@@ -6,23 +6,28 @@ function Menu() {
   //Display active menulist and show button tabs
   const [active, setIsActive] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [sound, setSound] = useState(true);
 
-  //Display active menu list and activate background when clicked
+  //Display dropdown menu list and activate background when clicked
   const handleActiveClick = () => {
     setIsActive(!active);
+    console.log(active);
   };
 
   //Display about/foods button onto window when clicked
-  const clickAbout = () => {
+  const handleClickAbout = () => {
     setShowButton(true);
   };
 
+  const handleActiveSound = () => {
+    setSound(!sound);
+  };
   //Close menu when clicking outside menu
-  const ref = useRef();
+  const menuRef = useRef();
   useEffect(() => {
-    const checkOutsideClick = (e) => {
-      if (active && ref.current && !ref.current.contains(e.target)) {
-        setIsActive(!active);
+    let checkOutsideClick = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setIsActive(false);
       }
     };
     document.addEventListener("mousedown", checkOutsideClick);
@@ -35,7 +40,7 @@ function Menu() {
     <div style={{ position: "relative", display: "inline-block" }}>
       {active && (
         <MenuList
-          ref={ref}
+          ref={menuRef}
           onClick={handleActiveClick}
           style={{
             position: "absolute",
@@ -56,7 +61,7 @@ function Menu() {
               GitHub Repo
             </a>
           </MenuListItem>
-          <MenuListItem onClick={clickAbout}>
+          <MenuListItem onClick={handleClickAbout}>
             <img
               style={{ width: 22, marginRight: 8 }}
               src={require("../assets/computer.png")}
@@ -65,7 +70,9 @@ function Menu() {
             <span>About</span>
           </MenuListItem>
           <Separator />
-          <MenuListItem>Start</MenuListItem>
+          <MenuListItem onClick={handleActiveSound}>
+            {sound ? "Startup Sound: On" : "Startup Sound: Off"}
+          </MenuListItem>
         </MenuList>
       )}
 

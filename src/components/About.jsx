@@ -4,7 +4,7 @@ import styled from "styled-components";
 export function About({showButton, setShowButton}) {
   const Wrapper = styled.div`
     padding: 5rem;
-    background: ${({ theme }) => theme.desktopBackground};
+    background: transparent;
     .window-title {
       display: flex;
       align-items: center;
