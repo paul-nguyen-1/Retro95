@@ -3,9 +3,8 @@ import { Button, Separator, MenuList, MenuListItem } from "react95";
 import TabButton from "./TabButton";
 
 function Menu() {
+  //Display active menulist and show button tabs
   const [active, setIsActive] = useState(false);
- 
-  
   const [showButton, setShowButton] = useState(false);
 
   //Display active menu list and activate background when clicked
@@ -25,7 +24,6 @@ function Menu() {
       if (
         active &&
         ref.current &&
-        showButton &&
         !ref.current.contains(e.target)
       ) {
         setIsActive(!active);
@@ -35,7 +33,7 @@ function Menu() {
     return () => {
       document.removeEventListener("mousedown", checkOutsideClick);
     };
-  }, [active, showButton]);
+  }, [active]);
 
   return (
     <div ref={ref} style={{ position: "relative", display: "inline-block" }}>
@@ -73,6 +71,7 @@ function Menu() {
           <MenuListItem>Start</MenuListItem>
         </MenuList>
       )}
+
       <Button
         onClick={handleActiveClick}
         active={active}
@@ -85,7 +84,7 @@ function Menu() {
         />
         Recipe95
       </Button>
-      {showButton && <TabButton />}
+      {showButton && <TabButton showButton={showButton} setShowButton={setShowButton}/>}
     </div>
   );
 }

@@ -9,7 +9,6 @@ import original from "react95/dist/themes/original";
 import ms_sans_serif from "react95/dist/fonts/ms_sans_serif.woff2";
 import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
 import Menu from "./components/Menu";
-import About from "./components/About";
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -45,7 +44,6 @@ const App = () => (
           />
         </Toolbar>
       </AppBar>
-      <About />
     </ThemeProvider>
   </div>
 );

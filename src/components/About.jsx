@@ -1,8 +1,7 @@
-import React, { useState } from "react";
 import { Anchor, Button, Window, WindowContent, WindowHeader } from "react95";
 import styled from "styled-components";
 
-export function About() {
+export function About({showButton, setShowButton}) {
   const Wrapper = styled.div`
     padding: 5rem;
     background: ${({ theme }) => theme.desktopBackground};
@@ -45,14 +44,8 @@ export function About() {
     }
   `;
 
-  const [showAbout, setShowAbout] = useState(true);
-
-  const handleShowAbout = () => {
-    setShowAbout(false);
-  };
-
   return (
-    showAbout && (
+    showButton && (
       <Wrapper
         style={{
           position: "fixed",
@@ -64,7 +57,7 @@ export function About() {
         <Window className="window">
           <WindowHeader className="window-title">
             <span>About.exe</span>
-            <Button onClick={handleShowAbout}>
+            <Button onClick={() => setShowButton(false)}>
              <div className="close-icon"></div> 
             </Button>
           </WindowHeader>

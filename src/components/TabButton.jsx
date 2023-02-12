@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "react95";
+import About from "../components/About";
 
-function Tab() {
+function Tab({setShowButton, showButton}) {
   const [activeTab, setActiveTab] = useState(true);
 
   //Activates tab background when being used
@@ -10,6 +11,7 @@ function Tab() {
   };
 
   return (
+    <>
     <Button
       onClick={handleActiveTab}
       active={activeTab}
@@ -22,6 +24,8 @@ function Tab() {
       />
       About
     </Button>
+      {activeTab && <About showButton={showButton} setShowButton={setShowButton}/>}
+    </>
   );
 }
 
