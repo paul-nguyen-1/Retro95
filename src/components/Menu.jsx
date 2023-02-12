@@ -21,11 +21,7 @@ function Menu() {
   const ref = useRef();
   useEffect(() => {
     const checkOutsideClick = (e) => {
-      if (
-        active &&
-        ref.current &&
-        !ref.current.contains(e.target)
-      ) {
+      if (active && ref.current && !ref.current.contains(e.target)) {
         setIsActive(!active);
       }
     };
@@ -36,9 +32,10 @@ function Menu() {
   }, [active]);
 
   return (
-    <div ref={ref} style={{ position: "relative", display: "inline-block" }}>
+    <div style={{ position: "relative", display: "inline-block" }}>
       {active && (
         <MenuList
+          ref={ref}
           onClick={handleActiveClick}
           style={{
             position: "absolute",
@@ -84,7 +81,9 @@ function Menu() {
         />
         Recipe95
       </Button>
-      {showButton && <TabButton showButton={showButton} setShowButton={setShowButton}/>}
+      {showButton && (
+        <TabButton showButton={showButton} setShowButton={setShowButton} />
+      )}
     </div>
   );
 }
