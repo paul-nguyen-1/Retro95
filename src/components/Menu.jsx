@@ -73,7 +73,7 @@ function Menu() {
           </MenuListItem>
           <Separator />
           <MenuListItem onClick={handleActiveSound}>
-            Click for Nostalgia
+            {sound ? 'Sound on to enjoy' : 'Click again for more'}
           </MenuListItem>
         </MenuList>
       )}

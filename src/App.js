@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppBar, styleReset, TextInput, Toolbar } from "react95";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
@@ -9,8 +9,12 @@ import original from "react95/dist/themes/original";
 import ms_sans_serif from "react95/dist/fonts/ms_sans_serif.woff2";
 import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
 import Menu from "./components/Menu";
+import Countries from "./components/Countries";
+import CountriesTab from "./components/CountriesTab";
 
 const GlobalStyles = createGlobalStyle`
+  display: flex;
+
   @font-face {
     font-family: 'ms_sans_serif';
     src: url('${ms_sans_serif}') format('woff2');
@@ -30,22 +34,30 @@ const GlobalStyles = createGlobalStyle`
   ${styleReset}
 `;
 
-const App = () => (
-  <div>
-    <GlobalStyles />
-    <ThemeProvider theme={original}>
-      <AppBar style={{ zIndex: 3 }}>
-        <Toolbar style={{ justifyContent: "space-between" }}>
-          <Menu />
-          <TextInput
-            placeholder="Search..."
-            width={150}
-            style={{ marginLeft: "auto" }}
-          />
-        </Toolbar>
-      </AppBar>
-    </ThemeProvider>
-  </div>
-);
+const App = () => {
+  return (
+    <div>
+      <GlobalStyles style={{ height: "400px" }} />
+      <ThemeProvider theme={original}>
+        <nav>
+          <AppBar style={{ zIndex: 3 }}>
+            <Toolbar style={{ justifyContent: "space-between" }}>
+              <Menu />
+              <CountriesTab />
+              <TextInput
+                placeholder="Search..."
+                width={150}
+                style={{ marginLeft: "auto" }}
+              />
+            </Toolbar>
+          </AppBar>
+        </nav>
+        <main>
+          <Countries style={{}} />
+        </main>
+      </ThemeProvider>
+    </div>
+  );
+};
 
 export default App;
