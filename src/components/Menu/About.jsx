@@ -1,7 +1,7 @@
 import { Anchor, Button, Window, WindowContent, WindowHeader } from "react95";
 import styled from "styled-components";
 
-export function About({showButton, setShowButton}) {
+export function About({ showButton, setShowButton }) {
   const Wrapper = styled.div`
     padding: 5rem;
     background: transparent;
@@ -58,17 +58,17 @@ export function About({showButton, setShowButton}) {
           <WindowHeader className="window-title">
             <span>About.exe</span>
             <Button onClick={() => setShowButton(false)}>
-             <div className="close-icon"></div> 
+              <div className="close-icon"></div>
             </Button>
           </WindowHeader>
           <WindowContent>
-            <p style={{ fontSize: "30px", marginBottom: "15px" }}> Recipe95 </p>
+            <p style={{ fontSize: "30px", marginBottom: "15px" }}> Retro95 </p>
             <p style={{ marginBottom: "15px" }}>
-              An open source Windows 95 style Recipe Book
+              An open source Windows 95 style Project
             </p>
             <p style={{ marginBottom: "15px" }}>
               {"Built with "}
-              <Anchor href="https://reactjs.org/" target="_blank">
+              <Anchor href="https://beta.reactjs.org/" target="_blank">
                 React
               </Anchor>
               {", "}

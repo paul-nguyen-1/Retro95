@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button, Separator, MenuList, MenuListItem } from "react95";
 import TabButton from "./TabButton";
-import windowsSound from "../assets/windowsSound.mp3";
+import windowsSound from "../../assets/windowsSound.mp3";
 
 function Menu() {
   //Display active menulist and show button tabs
@@ -50,10 +50,22 @@ function Menu() {
             bottom: "100%",
           }}
         >
+        <MenuListItem onClick={handleActiveSound}>
+            {sound ? 'Sound on to enjoy' : 'Click again for more'}
+          </MenuListItem>
+          <Separator />
+          <MenuListItem onClick={handleClickAbout}>
+            <img
+              style={{ width: 22, marginRight: 8 }}
+              src={require("../../assets/computer.png")}
+              alt="aboutLogo"
+            />
+            <span>About</span>
+          </MenuListItem>
           <MenuListItem>
             <img
               style={{ width: 22, marginRight: 8 }}
-              src={require("../assets/file.png")}
+              src={require("../../assets/file.png")}
               alt="aboutLogo"
             />
             <a
@@ -62,18 +74,6 @@ function Menu() {
             >
               GitHub Repo
             </a>
-          </MenuListItem>
-          <MenuListItem onClick={handleClickAbout}>
-            <img
-              style={{ width: 22, marginRight: 8 }}
-              src={require("../assets/computer.png")}
-              alt="aboutLogo"
-            />
-            <span>About</span>
-          </MenuListItem>
-          <Separator />
-          <MenuListItem onClick={handleActiveSound}>
-            {sound ? 'Sound on to enjoy' : 'Click again for more'}
           </MenuListItem>
         </MenuList>
       )}
@@ -84,7 +84,7 @@ function Menu() {
         style={{ fontWeight: "bold", marginRight: 6 }}
       >
         <img
-          src={require("../assets/windows.png")}
+          src={require("../../assets/windows.png")}
           alt="winlogo"
           style={{ marginLeft: -2, marginRight: 5, width: 20 }}
         />
