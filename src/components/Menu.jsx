@@ -47,7 +47,7 @@ function Menu() {
           style={{
             position: "absolute",
             left: "0",
-            top: "100%",
+            bottom: "100%",
           }}
         >
           <MenuListItem>

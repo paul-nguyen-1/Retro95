@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { AppBar, styleReset, TextInput, Toolbar } from "react95";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
@@ -40,20 +40,15 @@ const App = () => {
       <GlobalStyles style={{ height: "400px" }} />
       <ThemeProvider theme={original}>
         <nav>
-          <AppBar style={{ zIndex: 3 }}>
-            <Toolbar style={{ justifyContent: "space-between" }}>
+          <AppBar style={{ zIndex: 3, top: "auto", bottom: "0" }}>
+            <Toolbar>
               <Menu />
               <CountriesTab />
-              <TextInput
-                placeholder="Search..."
-                width={150}
-                style={{ marginLeft: "auto" }}
-              />
             </Toolbar>
           </AppBar>
         </nav>
         <main>
-          <Countries style={{}} />
+          <Countries />
         </main>
       </ThemeProvider>
     </div>
