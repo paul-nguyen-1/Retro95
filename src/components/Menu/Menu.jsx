@@ -27,7 +27,7 @@ function Menu() {
   //Close menu when clicking outside menu
   const menuRef = useRef();
   useEffect(() => {
-    let checkOutsideClick = (e) => {
+    const checkOutsideClick = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         setIsActive(false);
       }
@@ -69,7 +69,7 @@ function Menu() {
               alt="aboutLogo"
             />
             <a
-              href="https://github.com/paul-nguyen96/Recipe95"
+              href="https://github.com/paul-nguyen96/Retro95"
               style={{ cursor: "default" }}
             >
               GitHub Repo
@@ -88,7 +88,7 @@ function Menu() {
           alt="winlogo"
           style={{ marginLeft: -2, marginRight: 5, width: 20 }}
         />
-        Recipe95
+        Retro95
       </Button>
       {showButton && (
         <TabButton showButton={showButton} setShowButton={setShowButton} />

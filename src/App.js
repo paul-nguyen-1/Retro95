@@ -8,9 +8,9 @@ import original from "react95/dist/themes/original";
 /* Original Windows95 font (optional) */
 import ms_sans_serif from "react95/dist/fonts/ms_sans_serif.woff2";
 import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
-import Menu from "../src/components/Menu/Menu"
-import Countries from "./components/Countries";
-import CountriesTab from "./components/CountriesTab";
+import Menu from "../src/components/Menu/Menu";
+import Weather from "./components/Weather/Weather";
+import Stonks from "./components/Stocks/Stocks";
 
 const GlobalStyles = createGlobalStyle`
   display: flex;
@@ -43,12 +43,12 @@ const App = () => {
           <AppBar style={{ zIndex: 3, top: "auto", bottom: "0" }}>
             <Toolbar>
               <Menu />
-              <CountriesTab />
             </Toolbar>
           </AppBar>
         </nav>
-        <main>
-          <Countries />
+        <main >
+          <Weather />
+          <Stonks />
         </main>
       </ThemeProvider>
     </div>
