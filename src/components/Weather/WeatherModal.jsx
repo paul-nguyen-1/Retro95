@@ -9,6 +9,7 @@ import {
 } from "react95";
 
 function WeatherModal({ setWeatherActive }) {
+  //push modal to front if another tab is active
   const [pushToFront, setPushToFront] = useState(false)
 
   return (
