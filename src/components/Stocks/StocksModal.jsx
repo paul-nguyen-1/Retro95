@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Draggable from "react-draggable";
 import {
   Button,
@@ -10,14 +9,14 @@ import {
 
 function StocksModal({ setStocksActive }) {
     //push modal to front if another tab is active
-  const [pushToFront, setPushToFront] = useState(false);
+
   return (
     <div
       style={{
-        position: "fixed",
+        position: "absolute",
         top: "50%",
         left: "50%",
-        transform: "translate(-50%, -50%)",
+        transform: "translate(-55%, -110%)",
       }}
     >
       <Draggable>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import Draggable from "react-draggable";
 import {
   Button,
@@ -9,16 +9,13 @@ import {
 } from "react95";
 
 function WeatherModal({ setWeatherActive }) {
-  //push modal to front if another tab is active
-  const [pushToFront, setPushToFront] = useState(false)
-
   return (
     <div
       style={{
-        position: "fixed",
+        position: "absolute",
         top: "50%",
         left: "50%",
-        transform: "translate(-50%, -50%)",
+        transform: "translate(-50%, -125%)",
       }}
     >
       <Draggable>
