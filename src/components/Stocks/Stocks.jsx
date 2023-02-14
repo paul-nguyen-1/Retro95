@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 
-function Stonks() {
-  const [doubleClick, setDoubleClick] = useState(false);
+function Stocks({ setStocksActive }) {
   const [highlight, setHighlight] = useState(false);
 
   const handleHighlight = () => {
@@ -9,31 +8,16 @@ function Stonks() {
   };
 
   const handleDoubleClick = () => {
-    setDoubleClick(!doubleClick);
-    setHighlight(false)
+    setStocksActive(true)
+    setHighlight(false);
   };
-
- 
-  const menuRef = useRef();
-  useEffect(() => {
-    const checkOutsideClick = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setHighlight(false);
-      }
-    };
-    document.addEventListener("click", checkOutsideClick);
-    return () => {
-      document.removeEventListener("click", checkOutsideClick);
-    };
-  }, [highlight]);
 
   return (
     <div
-      useref={menuRef}
       style={{
         position: "absolute",
-        top: 80,
-        left: 15,
+        top: 110,
+        left: 10,
         cursor: "pointer",
         display: "flex",
         flexDirection: "column",
@@ -46,20 +30,21 @@ function Stonks() {
       onDoubleClick={handleDoubleClick}
     >
       <img
-        style={{ width: 35 }}
+        style={{ width: 60 }}
         src={require("../../assets/stonks.png")}
         alt="aboutLogo"
       />
       <span
         style={{
-          fontSize: 12,
+          fontSize: 16,
+          backgroundColor: highlight && "blue",
           color: "white",
         }}
       >
-        Stonks
+        Stocks
       </span>
     </div>
   );
 }
 
-export default Stonks;
+export default Stocks;

@@ -1,35 +1,19 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 
-function Weather() {
-  const [doubleClick, setDoubleClick] = useState(false);
+function Weather({ setWeatherActive }) {
   const [highlight, setHighlight] = useState(false);
 
   const handleHighlight = () => {
     setHighlight(true);
   };
 
-  const handleDoubleClick = () => {
-    console.log("double click");
-    setDoubleClick(!doubleClick);
-    setHighlight(false)
+  const handleClick = () => {
+    setWeatherActive(true);
+    setHighlight(false);
   };
-
-  const weatherRef = useRef(null);
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (weatherRef.current && !weatherRef.current.contains(e.target)) {
-        setHighlight(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [highlight]);
 
   return (
     <div
-      useRef={weatherRef}
       style={{
         position: "absolute",
         top: 10,
@@ -44,14 +28,14 @@ function Weather() {
         color: "white",
       }}
       onClick={handleHighlight}
-      onDoubleClick={handleDoubleClick}
+      onDoubleClick={handleClick}
     >
       <img
-        style={{ width: 35 }}
+        style={{ width: 60 }}
         src={require("../../assets/weather.png")}
         alt="aboutLogo"
       />
-      <span style={{ fontSize: 12}}>
+      <span style={{ fontSize: 16, backgroundColor: highlight && "blue" }}>
         Weather
       </span>
     </div>
