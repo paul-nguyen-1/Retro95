@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "react95";
 import About from "./About";
 
@@ -17,7 +17,7 @@ function Tab({ setShowButton, showButton, activeTab, setActiveTab}) {
         style={{ fontWeight: "bold" }}
       >
         <img
-          src={require("../../assets/aboutfile.png")}
+          src={require("../assets/aboutfile.png")}
           alt="aboutlogo"
           style={{ marginLeft: -2, marginRight: 5, width: 20 }}
         />
