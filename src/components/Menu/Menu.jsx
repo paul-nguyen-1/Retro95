@@ -8,6 +8,7 @@ function Menu() {
   const [active, setIsActive] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [sound, setSound] = useState(true);
+  const [activeTab, setActiveTab] = useState(true);
 
   //Display dropdown menu list and activate background when clicked
   const handleActiveClick = () => {
@@ -17,6 +18,7 @@ function Menu() {
   //Display about button onto window when clicked
   const handleClickAbout = () => {
     setShowButton(true);
+    setActiveTab(true)
   };
 
   const handleActiveSound = () => {
@@ -91,7 +93,7 @@ function Menu() {
         Retro95
       </Button>
       {showButton && (
-        <TabButton showButton={showButton} setShowButton={setShowButton} />
+        <TabButton showButton={showButton} setShowButton={setShowButton} activeTab={activeTab} setActiveTab={setActiveTab} />
       )}
     </div>
   );
