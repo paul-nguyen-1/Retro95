@@ -80,7 +80,7 @@ export function About({ showButton, setShowButton }) {
               </Anchor>
               {" and "}
               <Anchor href="https://www.themealdb.com/api.php" target="_blank">
-                TheMealDB.
+                API
               </Anchor>
             </p>
             <p style={{ marginBottom: "15px" }}>

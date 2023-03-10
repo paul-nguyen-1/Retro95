@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { AppBar, styleReset, Toolbar } from "react95";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
@@ -9,10 +9,6 @@ import original from "react95/dist/themes/original";
 import ms_sans_serif from "react95/dist/fonts/ms_sans_serif.woff2";
 import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
 import Menu from "../src/components/Menu/Menu";
-import Weather from "./components/Weather/Weather";
-import Stocks from "./components/Stocks/Stocks";
-import WeatherButton from "./components/Weather/WeatherButton";
-import StocksButton from "./components/Stocks/StocksButton";
 
 
 const GlobalStyles = createGlobalStyle`
@@ -38,8 +34,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const App = () => {
-  const [weatherActive, setWeatherActive] = useState(false);
-  const [stocksActive, setStocksActive] = useState(false);
+
 
   return (
     <div>
@@ -49,15 +44,12 @@ const App = () => {
           <AppBar style={{ zIndex: 3, top: "auto", bottom: "0" }}>
             <Toolbar>
               <Menu />
-              {weatherActive && <WeatherButton weatherActive={weatherActive} setWeatherActive={setWeatherActive} />}
-              {stocksActive && <StocksButton stocksActive={stocksActive} setStocksActive={setStocksActive} />}
+            
             </Toolbar>
           </AppBar>
         </nav>
         <main>
-          <Weather weatherActive={weatherActive} setWeatherActive={setWeatherActive} />
-          <Stocks stocksActive={stocksActive} setStocksActive={setStocksActive}/>
-          <stocks />
+    
         </main>
       </ThemeProvider>
     </div>

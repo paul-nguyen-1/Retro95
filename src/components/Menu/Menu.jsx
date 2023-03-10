@@ -14,7 +14,7 @@ function Menu() {
     setIsActive(!active);
   };
 
-  //Display about/foods button onto window when clicked
+  //Display about button onto window when clicked
   const handleClickAbout = () => {
     setShowButton(true);
   };
